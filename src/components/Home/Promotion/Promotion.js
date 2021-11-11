@@ -54,7 +54,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Get Appointment</Button>
+                <Button variant="outlined">Explore</Button>
               </Box>
             </Paper>
           </Grid>
@@ -75,7 +75,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Get Appointment</Button>
+                <Button variant="outlined">Explore</Button>
               </Box>
             </Paper>
           </Grid>
@@ -96,7 +96,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Get Appointment</Button>
+                <Button variant="outlined">Explore</Button>
               </Box>
             </Paper>
           </Grid>

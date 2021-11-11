@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,19 +10,31 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { Alert, CircularProgress } from "@mui/material";
 
 const theme = createTheme();
-
 const SignUp = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [loginData, setLoginData] = useState({});
+  const history = useHistory();
+  const { user, registerUser, isLoading, authError } = useAuth();
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+
+  const handleSubmit = (e) => {
+    if (loginData.password !== loginData.password2) {
+      alert("Your password did not match");
+      return;
+    }
+    registerUser(loginData.email, loginData.password, loginData.name, history);
+    e.preventDefault();
   };
   return (
     <ThemeProvider theme={theme}>
@@ -42,6 +54,11 @@ const SignUp = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+          {isLoading && <CircularProgress />}
+          {user?.email && (
+            <Alert severity="success">User Created successfully!</Alert>
+          )}
+          {authError && <Alert severity="error">{authError}</Alert>}
           <Box
             component="form"
             noValidate
@@ -53,6 +70,7 @@ const SignUp = () => {
                 <TextField
                   autoComplete="given-name"
                   name="fullName"
+                  onBlur={handleOnBlur}
                   required
                   fullWidth
                   id="fullName"
@@ -67,6 +85,7 @@ const SignUp = () => {
                   id="email"
                   label="Email Address"
                   name="email"
+                  onBlur={handleOnBlur}
                   autoComplete="email"
                 />
               </Grid>
@@ -75,7 +94,20 @@ const SignUp = () => {
                   required
                   fullWidth
                   name="password"
+                  onBlur={handleOnBlur}
                   label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password2"
+                  onBlur={handleOnBlur}
+                  label="Retype Password"
                   type="password"
                   id="password"
                   autoComplete="new-password"

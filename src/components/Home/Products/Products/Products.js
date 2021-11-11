@@ -15,6 +15,7 @@ import Navigation from "../../../Shared/Navigation/Navigation";
 
 const products = [
   {
+    id: 1,
     image: cart1,
     title: "Premium Glass",
     rating: "4",
@@ -22,65 +23,74 @@ const products = [
     discountPrice: 25.0,
   },
   {
+    id: 2,
     image: cart2,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 3,
     image: cart3,
     title: "Premium Glass",
-    rating: "4",
+    rating: 4,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 4,
     image: cart4,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 5,
     image: cart5,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 6,
     image: cart6,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 7,
     image: cart7,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 8,
     image: cart8,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 9,
     image: cart9,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 10,
     image: cart10,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
@@ -100,7 +110,7 @@ const Products = () => {
         sx={{ margin: "0 10px" }}
       >
         {products.map((product) => (
-          <Product key={product.title} product={product}></Product>
+          <Product key={product.id} product={product}></Product>
         ))}
       </Grid>
     </div>

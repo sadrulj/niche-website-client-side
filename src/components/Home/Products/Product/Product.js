@@ -4,7 +4,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Rating } from "@mui/material";
+import { Box, Button, Rating } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { image, title, rating, price, discountPrice } = product;
@@ -28,17 +29,24 @@ const Product = ({ product }) => {
             precision={0.5}
             readOnly
           />
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h4" color="text.secondary">
-              ${price}
-            </Typography>
-            <Typography
-              variant="h6"
-              style={{ marginLeft: 2, textDecoration: "line-through" }}
-              color="text.secondary"
-            >
-              ${discountPrice}
-            </Typography>
+          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Typography variant="h4" color="text.secondary">
+                ${price}
+              </Typography>
+              <Typography
+                variant="h6"
+                style={{ marginLeft: 2, textDecoration: "line-through" }}
+                color="text.secondary"
+              >
+                ${discountPrice}
+              </Typography>
+            </Box>
+            <Box>
+              <NavLink to="/products" style={{ textDecoration: "none" }}>
+                <Button variant="contained">Buy Now</Button>
+              </NavLink>
+            </Box>
           </Box>
         </CardContent>
       </Card>

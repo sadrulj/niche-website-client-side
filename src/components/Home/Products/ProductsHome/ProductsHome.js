@@ -10,6 +10,7 @@ import cart6 from "../../../../images/product-6.jpg";
 
 const products = [
   {
+    id: 1,
     image: cart1,
     title: "Premium Glass",
     rating: "4",
@@ -17,37 +18,42 @@ const products = [
     discountPrice: 25.0,
   },
   {
+    id: 2,
     image: cart2,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 3,
     image: cart3,
     title: "Premium Glass",
-    rating: "4",
+    rating: 4,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 4,
     image: cart4,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 5,
     image: cart5,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
   {
+    id: 6,
     image: cart6,
     title: "Premium Glass",
-    rating: "4.5",
+    rating: 4.5,
     price: 20.0,
     discountPrice: 25.0,
   },
@@ -65,7 +71,7 @@ const ProductsHome = () => {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {products.map((product) => (
-          <Product key={product.title} product={product}></Product>
+          <Product key={product.id} product={product}></Product>
         ))}
       </Grid>
     </div>

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,6 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleIcon from "@mui/icons-material/Google";
 import LoginIcon from "@mui/icons-material/Login";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { Alert, CircularProgress } from "@mui/material";
 
 const theme = createTheme();
 
@@ -35,6 +36,8 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     loginUser(loginData.email, loginData.password, location, history);
+
+    console.log(loginData.email, loginData.password, location, history);
 
     e.preventDefault();
   };
@@ -59,6 +62,9 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          {isLoading && <CircularProgress />}
+          {user?.email && <Alert severity="success">Login successfully!</Alert>}
+          {authError && <Alert severity="error">{authError}</Alert>}
           <Box
             component="form"
             onSubmit={handleSubmit}
