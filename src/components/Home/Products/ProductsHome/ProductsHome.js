@@ -56,20 +56,18 @@ const products = [
 const ProductsHome = () => {
   return (
     <div>
-      <div>
-        <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
-          Our Products...
-        </Typography>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          {products.map((product) => (
-            <Product key={product.title} product={product}></Product>
-          ))}
-        </Grid>
-      </div>
+      <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
+        Our Products...
+      </Typography>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 2 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {products.map((product) => (
+          <Product key={product.title} product={product}></Product>
+        ))}
+      </Grid>
     </div>
   );
 };

@@ -59,7 +59,7 @@ const Promotion = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <Paper style={bannerBg2} elevation={3}>
+            <Paper style={bannerBg2} elevation={3} spacing={2}>
               <Box
                 style={{
                   textAlign: "right",

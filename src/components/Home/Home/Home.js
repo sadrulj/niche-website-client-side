@@ -2,9 +2,8 @@ import React from "react";
 import Navigation from "../../Shared/Navigation/Navigation";
 import Banner from "../Banner/Banner";
 import Promotion from "../Promotion/Promotion";
-import Products from "../Products/Products/Products";
-import Reviews from "../Review/Reviews/Reviews";
 import ProductsHome from "../Products/ProductsHome/ProductsHome";
+import ReviewsHome from "../Review/ReviewsHome/ReviewsHome";
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
       <Banner />
       <Promotion />
       <ProductsHome />
-      <Reviews />
+      <ReviewsHome />
     </div>
   );
 };

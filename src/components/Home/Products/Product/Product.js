@@ -13,7 +13,7 @@ const Product = ({ product }) => {
       <Card sx={{ minWidth: 375, border: 2, boxShadow: 2 }}>
         <CardMedia
           component="img"
-          style={{ width: "60%", height: "180px", margin: "0 auto" }}
+          style={{ width: "100%", height: "200px", margin: "0 auto" }}
           image={image}
           alt="green iguana"
         />
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
             </Typography>
             <Typography
               variant="h6"
-              sx={{ marginLeft: 2 }}
+              style={{ marginLeft: 2, textDecoration: "line-through" }}
               color="text.secondary"
             >
               ${discountPrice}

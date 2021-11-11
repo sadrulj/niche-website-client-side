@@ -7,7 +7,6 @@ import blog4 from "../../../../images/blog-4.jpg";
 import blog5 from "../../../../images/blog-5.jpg";
 import blog6 from "../../../../images/blog-6.jpg";
 import Review from "../Review/Review";
-import Navigation from "../../../Shared/Navigation/Navigation";
 
 const blogs = [
   {
@@ -60,30 +59,23 @@ const blogs = [
   },
 ];
 
-const Reviews = () => {
+const ReviewsHome = () => {
   return (
-    <div>
-      <Navigation />
-      <Container>
-        <Typography
-          sx={{ fontWeight: 600, my: 5 }}
-          variant="h4"
-          component="div"
-        >
-          Our Blogs...
-        </Typography>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          {blogs.map((blog) => (
-            <Review key={blog.id} blog={blog}></Review>
-          ))}
-        </Grid>
-      </Container>
-    </div>
+    <Container>
+      <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
+        Our Blogs...
+      </Typography>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {blogs.splice(0, 3).map((blog) => (
+          <Review key={blog.id} blog={blog}></Review>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 
-export default Reviews;
+export default ReviewsHome;

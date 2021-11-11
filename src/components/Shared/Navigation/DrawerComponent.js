@@ -60,8 +60,8 @@ function DrawerComponent() {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.link} to="/about">
-                Faq
+              <Link className={classes.link} to="/blogs">
+                blogs
               </Link>
             </ListItemText>
           </ListItem>

@@ -8,12 +8,13 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
+import LoginIcon from "@mui/icons-material/Login";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(10),
     display: "flex",
     textDecoration: "none",
     color: "white",
@@ -65,8 +66,16 @@ function Navbar() {
             <Link to="/contact" className={classes.link}>
               Contact
             </Link>
-            <Link to="/faq" className={classes.link}>
-              FAQ
+            <Link to="/blogs" className={classes.link}>
+              Blogs
+            </Link>
+            <Link
+              to="/login"
+              className={classes.link}
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <LoginIcon />
+              Login
             </Link>
           </div>
         )}
