@@ -1,56 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, Rating } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
+import Purchase from "../Purchase/Purchase";
 
 const Product = ({ product }) => {
-  const { image, title, rating, price, discountPrice } = product;
+  const { _id, image, title, productCode, rating, price } = product;
+
+  // const history = useHistory();
+  // const location = useLocation();
+
+  // const handleOnClick = () => {
+  //   const destination = location?.state?.from || ;
+  //   history.replace(destination);
+  // };
+
   return (
-    <Grid item xs={4} sm={4} md={4}>
-      <Card sx={{ minWidth: 375, border: 2, boxShadow: 2 }}>
-        <CardMedia
-          component="img"
-          style={{ width: "100%", height: "200px", margin: "0 auto" }}
-          image={image}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {title}
-          </Typography>
-          <Rating
-            name="read-only"
-            value={rating}
-            defaultValue={2.5}
-            precision={0.5}
-            readOnly
+    <>
+      <Grid item xs={4} sm={4} md={4}>
+        <Card sx={{ minWidth: 375, border: 2, boxShadow: 2 }}>
+          <CardMedia
+            component="img"
+            style={{
+              width: "100%",
+              height: "200px",
+              margin: "0 auto",
+              padding: "10px",
+            }}
+            image={image}
+            alt="green iguana"
           />
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h4" color="text.secondary">
-                ${price}
-              </Typography>
-              <Typography
-                variant="h6"
-                style={{ marginLeft: 2, textDecoration: "line-through" }}
-                color="text.secondary"
-              >
-                ${discountPrice}
-              </Typography>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography variant="h5" component="div">
+              {productCode}
+            </Typography>
+            <Rating
+              name="read-only"
+              value={rating}
+              defaultValue={2.5}
+              precision={0.5}
+              readOnly
+            />
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Typography variant="h4" color="text.secondary">
+                  ${price}
+                </Typography>
+              </Box>
+              <Box>
+                <NavLink
+                  to={`/products/${_id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Button variant="contained">Buy Now</Button>
+                </NavLink>
+              </Box>
             </Box>
-            <Box>
-              <NavLink to="/products" style={{ textDecoration: "none" }}>
-                <Button variant="contained">Buy Now</Button>
-              </NavLink>
-            </Box>
-          </Box>
-        </CardContent>
-      </Card>
-    </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      {/* <Purchase product={product}></Purchase> */}
+    </>
   );
 };
 

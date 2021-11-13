@@ -69,7 +69,7 @@ const SignUp = () => {
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="fullName"
+                  name="name"
                   onBlur={handleOnBlur}
                   required
                   fullWidth

@@ -8,6 +8,9 @@ import SignUp from "./components/Shared/SignUp/SignUp";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import AuthProvider from "./components/Contexts/AuthProvider/AuthProvider";
 import PrivateRoute from "./components/Home/PrivateRoute/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import AddProduct from "./components/Dashboard/AddProduct/AddProduct";
+import Purchase from "./components/Home/Products/Purchase/Purchase";
 
 function App() {
   return (
@@ -21,17 +24,20 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <PrivateRoute path="/products">
+            <Route path="/explore">
               <Products />
-            </PrivateRoute>
-            <Route path="/blogs">
-              <Blogs />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
             <Route path="/signup">
               <SignUp />
+            </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
+            <Route path="/purchase">
+              <Purchase />
             </Route>
             <Route path="*">
               <NotFound />

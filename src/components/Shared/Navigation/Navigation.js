@@ -9,9 +9,9 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import LoginIcon from "@mui/icons-material/Login";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(10),
+    marginLeft: theme.spacing(20),
     "&:hover": {
       color: "yellow",
       borderBottom: "1px solid white",
@@ -61,14 +61,8 @@ function Navbar() {
             <Link to="/home" className={classes.link}>
               Home
             </Link>
-            <Link to="/products" className={classes.link}>
-              Products
-            </Link>
-            <Link to="/about" className={classes.link}>
-              About
-            </Link>
-            <Link to="/contact" className={classes.link}>
-              Contact
+            <Link to="/explore" className={classes.link}>
+              Explore
             </Link>
             <Link to="/blogs" className={classes.link}>
               Blogs
@@ -82,7 +76,7 @@ function Navbar() {
                     textDecoration: "none",
                     color: "white",
                     fontSize: "20px",
-                    margin: "0 30px",
+                    margin: "0 50px",
                   }}
                 >
                   Dashboard

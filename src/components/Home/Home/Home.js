@@ -3,7 +3,7 @@ import Navigation from "../../Shared/Navigation/Navigation";
 import Banner from "../Banner/Banner";
 import Promotion from "../Promotion/Promotion";
 import ProductsHome from "../Products/ProductsHome/ProductsHome";
-import ReviewsHome from "../Review/ReviewsHome/ReviewsHome";
+import Reviews from "../Review/Reviews/Reviews";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Banner />
       <Promotion />
       <ProductsHome />
-      <ReviewsHome />
+      <Reviews />
     </div>
   );
 };

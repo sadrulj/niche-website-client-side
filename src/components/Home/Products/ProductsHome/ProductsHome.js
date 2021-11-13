@@ -1,79 +1,32 @@
+import { Container } from "@material-ui/core";
 import { Grid, Typography } from "@mui/material";
-import React from "react";
-import Product from "../Product/Product";
-import cart1 from "../../../../images/product-1.jpg";
-import cart2 from "../../../../images/product-2.jpg";
-import cart3 from "../../../../images/product-3.jpg";
-import cart4 from "../../../../images/product-4.jpg";
-import cart5 from "../../../../images/product-5.jpg";
-import cart6 from "../../../../images/product-6.jpg";
-
-const products = [
-  {
-    id: 1,
-    image: cart1,
-    title: "Premium Glass",
-    rating: "4",
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-  {
-    id: 2,
-    image: cart2,
-    title: "Premium Glass",
-    rating: 4.5,
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-  {
-    id: 3,
-    image: cart3,
-    title: "Premium Glass",
-    rating: 4,
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-  {
-    id: 4,
-    image: cart4,
-    title: "Premium Glass",
-    rating: 4.5,
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-  {
-    id: 5,
-    image: cart5,
-    title: "Premium Glass",
-    rating: 4.5,
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-  {
-    id: 6,
-    image: cart6,
-    title: "Premium Glass",
-    rating: 4.5,
-    price: 20.0,
-    discountPrice: 25.0,
-  },
-];
+import React, { useState, useEffect } from "react";
+import ProductHome from "../../Products/ProductHome/ProductHome";
 
 const ProductsHome = () => {
+  const [productsHome, setProductHome] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => setProductHome(data));
+  }, []);
   return (
     <div>
-      <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
-        Our Products...
-      </Typography>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 2 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
-      >
-        {products.map((product) => (
-          <Product key={product.id} product={product}></Product>
-        ))}
-      </Grid>
+      <Container>
+        <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
+          Our Products...
+        </Typography>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 2 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {productsHome.slice(0, 6).map((product) => (
+            <ProductHome key={product._id} product={product}></ProductHome>
+          ))}
+        </Grid>
+      </Container>
     </div>
   );
 };

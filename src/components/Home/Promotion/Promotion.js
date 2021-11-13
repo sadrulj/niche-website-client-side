@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import banner1 from "../../../images/banner-1.jpg";
 import banner2 from "../../../images/banner-2.jpg";
 import banner3 from "../../../images/banner-3.jpg";
@@ -50,11 +51,13 @@ const Promotion = () => {
                 <Typography variant="h6">Special Offer</Typography>
                 <Typography
                   variant="h6"
-                  sx={{ my: 3, fontSize: 13, fontWeight: 600, color: "gray" }}
+                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Explore</Button>
+                <NavLink to="/explore">
+                  <Button variant="outlined">Explore</Button>
+                </NavLink>
               </Box>
             </Paper>
           </Grid>
@@ -71,11 +74,13 @@ const Promotion = () => {
                 <Typography variant="h6">Special Offer</Typography>
                 <Typography
                   variant="h6"
-                  sx={{ my: 3, fontSize: 13, fontWeight: 600, color: "gray" }}
+                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Explore</Button>
+                <NavLink to="/explore">
+                  <Button variant="outlined">Explore</Button>
+                </NavLink>
               </Box>
             </Paper>
           </Grid>
@@ -92,11 +97,13 @@ const Promotion = () => {
                 <Typography variant="h6">Special Offer</Typography>
                 <Typography
                   variant="h6"
-                  sx={{ my: 3, fontSize: 13, fontWeight: 600, color: "gray" }}
+                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
                 >
                   Upto 50%
                 </Typography>
-                <Button variant="outlined">Explore</Button>
+                <NavLink to="/explore">
+                  <Button variant="outlined">Explore</Button>
+                </NavLink>
               </Box>
             </Paper>
           </Grid>
