@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import "./style.css";
 import Home from "./components/Home/Home/Home";
 import Products from "./components/Home/Products/Products/Products";
 import Login from "./components/Shared/Login/Login";

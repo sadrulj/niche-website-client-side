@@ -25,16 +25,10 @@ const useStyles = makeStyles((theme) => ({
   banner1: {
     backgroundImage: `url(${carouselImage1})`,
   },
-  banner2: {
-    backgroundImage: `url(${carouselImage2})`,
-  },
-  banner3: {
-    backgroundImage: `url(${carouselImage3})`,
-  },
   carouselContent: {
     display: "flex",
     flexDirection: "column",
-    paddingLeft: theme.spacing(10),
+    paddingLeft: theme.spacing(3),
   },
   btn: {
     padding: theme.spacing(1.5, 4),
@@ -60,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Banner = () => {
+const Banner = (props) => {
   const classes = useStyles();
   return (
     <Carousel>
@@ -68,49 +62,13 @@ const Banner = () => {
         <Slide
           direction="right"
           in={true}
-          timeout={900}
+          timeout={1000}
           mountOnEnter
           unmountOnExit
         >
           <div className={classes.carouselContent}>
             <h2 className={classes.bannerTitle}>Special Offer</h2>
             <h4 className={classes.bannerText}>Upto 50% Off</h4>
-            <div style={{ textAlign: "left" }}>
-              <Button className={classes.btn}>Find out more</Button>
-              <Button className={classes.btn}>Explore</Button>
-            </div>
-          </div>
-        </Slide>
-      </Paper>
-      <Paper className={clsx(classes.carousel, classes.banner2)}>
-        <Slide
-          direction="right"
-          in={true}
-          timeout={1000}
-          mountOnEnter
-          unmountOnExit
-        >
-          <div className={classes.carouselContent}>
-            <h2 className={classes.bannerTitle}>Limited Offer</h2>
-            <h4 className={classes.bannerText}>Grab your deal now...</h4>
-            <div style={{ textAlign: "left" }}>
-              <Button className={classes.btn}>Find out more</Button>
-              <Button className={classes.btn}>Explore</Button>
-            </div>
-          </div>
-        </Slide>
-      </Paper>
-      <Paper className={clsx(classes.carousel, classes.banner3)}>
-        <Slide
-          direction="right"
-          in={true}
-          timeout={1000}
-          mountOnEnter
-          unmountOnExit
-        >
-          <div className={classes.carouselContent}>
-            <h2 className={classes.bannerTitle}>Explore your </h2>
-            <h4 className={classes.bannerText}>Premium grade glasses</h4>
             <div style={{ textAlign: "left" }}>
               <Button className={classes.btn}>Find out more</Button>
               <Button className={classes.btn}>Explore</Button>
