@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Promotion from "../Promotion/Promotion";
 import ProductsHome from "../Products/ProductsHome/ProductsHome";
 import Reviews from "../Review/Reviews/Reviews";
+import Footer from "../../Shared/Footer/Footer";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Promotion />
       <ProductsHome />
       <Reviews />
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Product from "../Product/Product";
 import Navigation from "../../../Shared/Navigation/Navigation";
 import { Container } from "@material-ui/core";
+import Footer from "../../../Shared/Footer/Footer";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ const Products = () => {
           ))}
         </Grid>
       </Container>
+      <Footer />
     </div>
   );
 };

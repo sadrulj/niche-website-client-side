@@ -98,10 +98,11 @@ const ManageProducts = () => {
                 <TableCell align="center">{product.price}</TableCell>
                 <TableCell align="center">
                   <Button
+                    sx={{ bgcolor: "error.main", fontWeight: 600 }}
                     onClick={() => handleDeleteProduct(product._id)}
                     variant="contained"
                   >
-                    Delete
+                    X
                   </Button>
                 </TableCell>
               </TableRow>

@@ -1,23 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, Rating } from "@mui/material";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
-import Purchase from "../Purchase/Purchase";
+import { NavLink } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { _id, image, title, productCode, rating, price } = product;
-
-  // const history = useHistory();
-  // const location = useLocation();
-
-  // const handleOnClick = () => {
-  //   const destination = location?.state?.from || ;
-  //   history.replace(destination);
-  // };
 
   return (
     <>
@@ -56,7 +47,7 @@ const Product = ({ product }) => {
               </Box>
               <Box>
                 <NavLink
-                  to={`/products/${_id}`}
+                  to={`/purchase/${_id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Button variant="contained">Buy Now</Button>
@@ -66,7 +57,6 @@ const Product = ({ product }) => {
           </CardContent>
         </Card>
       </Grid>
-      {/* <Purchase product={product}></Purchase> */}
     </>
   );
 };

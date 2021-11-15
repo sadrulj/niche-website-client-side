@@ -106,7 +106,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/home";
         history.replace(destination);
       })
       .catch((error) => {

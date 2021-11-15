@@ -11,7 +11,7 @@ import {
 import LoginIcon from "@mui/icons-material/Login";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,12 +64,9 @@ function Navbar() {
             <Link to="/explore" className={classes.link}>
               Explore
             </Link>
-            <Link to="/blogs" className={classes.link}>
-              Blogs
-            </Link>
 
             {user?.email ? (
-              <div>
+              <Box sx={{ display: "flex" }}>
                 <Link
                   to="/dashboard"
                   style={{
@@ -81,10 +78,15 @@ function Navbar() {
                 >
                   Dashboard
                 </Link>
-                <Button onClick={logout} color="inherit">
+                <Typography variant="h6">{user.displayName}</Typography>
+                <Button
+                  onClick={logout}
+                  sx={{ marginLeft: "50px" }}
+                  variant="contained"
+                >
                   Logout
                 </Button>
-              </div>
+              </Box>
             ) : (
               <Link
                 to="/login"

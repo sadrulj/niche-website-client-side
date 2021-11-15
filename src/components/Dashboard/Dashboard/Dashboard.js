@@ -55,11 +55,22 @@ function ResponsiveDrawer(props) {
           style={{ fontWeight: 600, textAlign: "right" }}
           sx={{ mx: 1 }}
         >
-          {user.displayName}
+          {user.email}
         </Typography>
       </Box>
       <Divider />
       <List>
+        <ListItem
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            textDecoration: "none",
+          }}
+        >
+          <Link to="/home">
+            <Button>Home</Button>
+          </Link>
+        </ListItem>
         {admin ? (
           <Box>
             <ListItem
@@ -215,6 +226,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
+
       <Box
         component="main"
         sx={{

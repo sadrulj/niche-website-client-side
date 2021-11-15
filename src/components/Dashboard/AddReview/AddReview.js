@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Typography, useMediaQuery } from "@mui/material";
+import { Typography } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 
 const style = {
@@ -53,7 +53,6 @@ const Review = () => {
 
     e.preventDefault();
   };
-  const matches = useMediaQuery("(min-width:600px)");
   return (
     <Box sx={style} matches>
       <Typography variant="h4">Add Review</Typography>
@@ -61,14 +60,14 @@ const Review = () => {
         <TextField
           sx={{ width: "90%", m: 1 }}
           id="outlined-size-small"
-          defaultValue={user.email}
+          value={user.email}
           label="Email"
           size="small"
         />
         <TextField
           sx={{ width: "90%", m: 1 }}
           id="outlined-size-small"
-          defaultValue={user.displayName}
+          value={user.displayName}
           label="User Name"
           size="small"
         />

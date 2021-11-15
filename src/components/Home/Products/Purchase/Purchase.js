@@ -1,139 +1,129 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Grid,
+  Input,
+  InputLabel,
+  Rating,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import Navigation from "../../../Shared/Navigation/Navigation";
+import Footer from "../../../Shared/Footer/Footer";
+import { Button } from "@mui/material";
 import useAuth from "../../../../hooks/useAuth";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 600,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 5,
-  mt: 3,
-  mx: 5,
-};
-
 const Purchase = () => {
+  const { id } = useParams();
   const { user } = useAuth();
-  const { productCode } = useParams();
-  const [products, setProducts] = useState([]);
+  const history = useHistory();
+  const location = useLocation();
+
+  const initialInfo = { email: user.email };
+  const [products, setProducts] = useState(initialInfo);
+  console.log(products);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${productCode}`)
+    fetch(`http://localhost:5000/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [id]);
 
-  const imageRef = useRef();
-  const titleRef = useRef();
-  const productCodeRef = useRef();
-  const priceRef = useRef();
-  const phoneRef = useRef();
-  const addressRef = useRef();
+  const handleOnClick = (data) => {
+    const newInfo = {
+      ...products,
+      email: user.email,
+    };
 
-  const handleSubmit = (e) => {
-    // collect data
-    const image = imageRef.current.value;
-    const title = titleRef.current.value;
-    const productCode = productCodeRef.current.value;
-    const price = priceRef.current.value;
-    const phone = phoneRef.current.value;
-    const address = addressRef.current.value;
-    const newItem = { image, title, productCode, price, phone, address };
-    // send to the server
-    fetch("http://localhost:5000/purchase", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newItem),
-    });
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   console.log(data);
-    //   if (data.insertedId) {
-    //     alert("Your Item sucessfully Added to Dashboard/MyOrder .");
-    //   }
-    // });
-    // if (data.insertedId) {
-    //        alert("Your Item sucessfully Added to Dashboard/MyOrder .");
+      body: JSON.stringify(newInfo),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result._id) {
+          alert("Already Added to Order List");
+          return;
+        } else if (result.insertedId) {
+          alert("Order Added to dashboard/myOrder");
+          const destination = location?.state?.from || "/dashboard/myOrders";
+          history.replace(destination);
+        }
+      });
 
-    e.preventDefault();
+    console.log(newInfo);
   };
-  const { image, title, price } = products;
   return (
-    <Box sx={style}>
-      <Typography variant="h4">Purchase Info</Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          disabled
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={imageRef}
-          defaultValue={image}
-          size="small"
-        />
-        <TextField
-          disabled
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={titleRef}
-          defaultValue={title}
-          size="small"
-        />
-        <TextField
-          disabled
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={productCodeRef}
-          defaultValue={productCode}
-          size="small"
-        />
-        <TextField
-          disabled
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={priceRef}
-          defaultValue={price}
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          defaultValue={user.displayName}
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          defaultValue={user.email}
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={phoneRef}
-          type="number"
-          label="phone number"
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          ref={addressRef}
-          type="text"
-          label="address"
-          size="small"
-        />
-        <Button type="submit" variant="contained">
-          Submit
-        </Button>
-      </form>
-    </Box>
+    <div>
+      <Navigation />
+      <Container>
+        <Grid container spacing={3} sx={{ my: 2 }}>
+          <Grid item xs={12} md={6}>
+            <img src={products.image} alt="" />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" align="left">
+              {products.title} ({products.productCode})
+            </Typography>
+            <Rating
+              name="read-only"
+              value={products.rating}
+              size="large"
+              defaultValue={2.5}
+              precision={0.5}
+              readOnly
+              sx={{
+                display: "flex",
+                justifyContent: "left",
+                margin: "25px 0",
+              }}
+            />
+            <Typography variant="h4" align="left" sx={{ my: 4 }}>
+              $ {products.price}
+            </Typography>
+            <Typography variant="h4" align="left" sx={{ my: 4 }}></Typography>
+            <Grid
+              container
+              spacing={3}
+              sx={{
+                display: "flex",
+                justifyContent: "left",
+                alignItems: "center",
+                my: 2,
+              }}
+            >
+              <Grid item xs={6} md={3}>
+                <TextField
+                  sx={{
+                    display: "flex",
+                    justifyContent: "left",
+                    width: "80px",
+                    marginTop: "25px",
+                  }}
+                  type="number"
+                  defaultValue="1"
+                  InputLabelProps={{ shrink: true }}
+                />
+              </Grid>
+              <Grid item xs={6} md={3}>
+                <Button
+                  onClick={handleOnClick}
+                  variant="contained"
+                  sx={{ height: "58px", marginTop: "28px", marginLeft: "20px" }}
+                >
+                  Buy Now
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+      <Footer />
+    </div>
   );
 };
 

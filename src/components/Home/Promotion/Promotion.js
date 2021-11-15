@@ -55,7 +55,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <NavLink to="/explore">
+                <NavLink to="/explore" style={{ textDecoration: "none" }}>
                   <Button variant="outlined">Explore</Button>
                 </NavLink>
               </Box>
@@ -78,7 +78,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <NavLink to="/explore">
+                <NavLink to="/explore" style={{ textDecoration: "none" }}>
                   <Button variant="outlined">Explore</Button>
                 </NavLink>
               </Box>
@@ -101,7 +101,7 @@ const Promotion = () => {
                 >
                   Upto 50%
                 </Typography>
-                <NavLink to="/explore">
+                <NavLink to="/explore" style={{ textDecoration: "none" }}>
                   <Button variant="outlined">Explore</Button>
                 </NavLink>
               </Box>
