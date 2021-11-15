@@ -68,7 +68,7 @@ const Banner = () => {
         <Slide
           direction="right"
           in={true}
-          timeout={1000}
+          timeout={900}
           mountOnEnter
           unmountOnExit
         >

@@ -33,7 +33,7 @@ const AddProduct = () => {
       ...productInfo,
     };
     // send to the server
-    fetch("http://localhost:5000/products", {
+    fetch("https://obscure-temple-56874.herokuapp.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
