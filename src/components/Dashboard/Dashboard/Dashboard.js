@@ -243,7 +243,7 @@ function ResponsiveDrawer(props) {
           <Route path={`${path}/review`}>
             <Review />
           </Route>
-          <Route path={`${path}/pay`}>
+          <Route path={`${path}/pay/:orderId`}>
             <Pay />
           </Route>
           <Route path={`${path}/manageAllOrders`}>

@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Grid,
-  Input,
-  InputLabel,
-  Rating,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Container, Grid, Rating, TextField, Typography } from "@mui/material";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import Navigation from "../../../Shared/Navigation/Navigation";
 import Footer from "../../../Shared/Footer/Footer";
@@ -20,8 +12,7 @@ const Purchase = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const initialInfo = { email: user.email };
-  const [products, setProducts] = useState(initialInfo);
+  const [products, setProducts] = useState([]);
   console.log(products);
 
   useEffect(() => {
@@ -30,9 +21,13 @@ const Purchase = () => {
       .then((data) => setProducts(data));
   }, [id]);
 
-  const handleOnClick = (data) => {
+  const handleOnClick = () => {
     const newInfo = {
-      ...products,
+      image: products.image,
+      price: products.price,
+      productCode: products.productCode,
+      rating: products.rating,
+      title: products.title,
       email: user.email,
     };
 
@@ -45,7 +40,8 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result._id) {
+        console.log(result);
+        if (result.productCode) {
           alert("Already Added to Order List");
           return;
         } else if (result.insertedId) {

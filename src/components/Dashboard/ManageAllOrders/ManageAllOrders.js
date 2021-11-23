@@ -21,17 +21,18 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://obscure-temple-56874.herokuapp.com/products/${id}`;
+      const url = `https://obscure-temple-56874.herokuapp.com/orders/${id}`;
 
       fetch(url, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           if (data.deletedCount > 0) {
             alert("Successfully Deleted!!");
             const remainingProducts = allOrders.filter(
-              (product) => product._id !== id
+              (product) => product.id !== id
             );
             setAllOrders(remainingProducts);
           }

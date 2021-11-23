@@ -8,11 +8,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import useAuth from "../../../hooks/useAuth";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
-
+  console.log(orders);
   useEffect(() => {
     const url = `https://obscure-temple-56874.herokuapp.com/orders/${user.email}`;
     fetch(url)
@@ -30,12 +31,11 @@ const MyOrders = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           if (data.deletedCount > 0) {
             alert("Successfully Deleted!!");
-            const remainingProducts = orders.filter(
-              (order) => order._id !== id
-            );
-            setOrders(remainingProducts);
+            const remainingOrders = orders.filter((order) => order.id !== id);
+            setOrders(remainingOrders);
           }
         });
     }
@@ -67,6 +67,13 @@ const MyOrders = () => {
                 <TableCell align="right">{order.price}</TableCell>
                 <TableCell align="right">{order.email}</TableCell>
                 <TableCell align="right">
+                  {order.pay ? (
+                    "Paid"
+                  ) : (
+                    <Link to={`/dashboard/pay/${order._id}`}>
+                      <Button variant="contained">Pay</Button>
+                    </Link>
+                  )}
                   <Button
                     onClick={() => handleDelete(order._id)}
                     variant="contained"

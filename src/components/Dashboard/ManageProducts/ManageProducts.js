@@ -86,7 +86,7 @@ const ManageProducts = () => {
           <TableBody>
             {products.map((product) => (
               <TableRow
-                key={product.id}
+                key={product._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row" align="center">

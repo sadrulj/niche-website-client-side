@@ -47,7 +47,7 @@ const Product = ({ product }) => {
               </Box>
               <Box>
                 <NavLink
-                  to={`/purchase/${_id}`}
+                  to={`/product/${_id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Button variant="contained">Buy Now</Button>
