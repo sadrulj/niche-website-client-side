@@ -21,6 +21,7 @@ import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageReview from "../ManageReview/ManageReview";
 
 const drawerWidth = 240;
 
@@ -115,6 +116,17 @@ function ResponsiveDrawer(props) {
             >
               <Link to={`${url}/manageProducts`}>
                 <Button>Manage Products</Button>
+              </Link>
+            </ListItem>
+            <ListItem
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                textDecoration: "none",
+              }}
+            >
+              <Link to={`${url}/manageReviews`}>
+                <Button>Manage Reviews</Button>
               </Link>
             </ListItem>
           </Box>
@@ -257,6 +269,9 @@ function ResponsiveDrawer(props) {
           </Route>
           <Route path={`${path}/manageProducts`}>
             <ManageProducts />
+          </Route>
+          <Route path={`${path}/manageReviews`}>
+            <ManageReview />
           </Route>
         </Switch>
       </Box>
