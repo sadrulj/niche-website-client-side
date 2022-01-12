@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 const style = {
   width: 500,
   boxShadow: 16,
-  p: 5,
+  padding: 5,
 };
 
 const AddProduct = () => {
