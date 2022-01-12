@@ -12,104 +12,119 @@ const bannerBg1 = {
   backgroundImage: `url(${banner1})`,
   width: "450px",
   height: "300px",
+  margin: "20px 0",
+  objectFit: "cover",
 };
 const bannerBg2 = {
   backgroundImage: `url(${banner2})`,
   width: "450px",
   height: "300px",
+  margin: "20px 0",
+  objectFit: "cover",
 };
 const bannerBg3 = {
   backgroundImage: `url(${banner3})`,
   width: "450px",
   height: "300px",
+  margin: "20px 0",
+  objectFit: "cover",
 };
 
 const Promotion = () => {
   return (
-    <div>
-      <Box
-        container
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          p: 4,
-          m: 1,
-          background: "background.paper",
-        }}
+    <Grid
+      container
+      spacing={{ xs: 2, md: 3 }}
+      columns={{ xs: 12, sm: 6, md: 4 }}
+    >
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        style={{ display: "flex", justifyContent: "center" }}
       >
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6} lg={4}>
-            <Paper style={bannerBg1} elevation={2}>
-              <Box
-                style={{
-                  textAlign: "right",
-                  flexDirection: "row-reverse",
-                  marginRight: "20px",
-                  paddingTop: "20px",
-                }}
-              >
-                <Typography variant="h6">Special Offer</Typography>
-                <Typography
-                  variant="h6"
-                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
-                >
-                  Upto 50%
-                </Typography>
-                <NavLink to="/explore" style={{ textDecoration: "none" }}>
-                  <Button variant="outlined">Explore</Button>
-                </NavLink>
-              </Box>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <Paper style={bannerBg2} elevation={3} spacing={2}>
-              <Box
-                style={{
-                  textAlign: "right",
-                  flexDirection: "row-reverse",
-                  marginRight: "20px",
-                  paddingTop: "20px",
-                }}
-              >
-                <Typography variant="h6">Special Offer</Typography>
-                <Typography
-                  variant="h6"
-                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
-                >
-                  Upto 50%
-                </Typography>
-                <NavLink to="/explore" style={{ textDecoration: "none" }}>
-                  <Button variant="outlined">Explore</Button>
-                </NavLink>
-              </Box>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <Paper style={bannerBg3} elevation={3}>
-              <Box
-                style={{
-                  textAlign: "right",
-                  flexDirection: "row-reverse",
-                  marginRight: "20px",
-                  paddingTop: "20px",
-                }}
-              >
-                <Typography variant="h6">Special Offer</Typography>
-                <Typography
-                  variant="h6"
-                  sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
-                >
-                  Upto 50%
-                </Typography>
-                <NavLink to="/explore" style={{ textDecoration: "none" }}>
-                  <Button variant="outlined">Explore</Button>
-                </NavLink>
-              </Box>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Box>
-    </div>
+        <Paper style={bannerBg1} elevation={2}>
+          <Box
+            style={{
+              textAlign: "right",
+              flexDirection: "row-reverse",
+              marginRight: "20px",
+              paddingTop: "20px",
+            }}
+          >
+            <Typography variant="h6">Special Offer</Typography>
+            <Typography
+              variant="h6"
+              sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
+            >
+              Upto 50%
+            </Typography>
+            <NavLink to="/explore" style={{ textDecoration: "none" }}>
+              <Button variant="outlined">Explore</Button>
+            </NavLink>
+          </Box>
+        </Paper>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <Paper style={bannerBg2} elevation={3} spacing={2}>
+          <Box
+            style={{
+              textAlign: "right",
+              flexDirection: "row-reverse",
+              marginRight: "20px",
+              paddingTop: "20px",
+            }}
+          >
+            <Typography variant="h6">Special Offer</Typography>
+            <Typography
+              variant="h6"
+              sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
+            >
+              Upto 50%
+            </Typography>
+            <NavLink to="/explore" style={{ textDecoration: "none" }}>
+              <Button variant="outlined">Explore</Button>
+            </NavLink>
+          </Box>
+        </Paper>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <Paper style={bannerBg3} elevation={3}>
+          <Box
+            style={{
+              textAlign: "right",
+              flexDirection: "row-reverse",
+              marginRight: "20px",
+              paddingTop: "20px",
+            }}
+          >
+            <Typography variant="h6">Special Offer</Typography>
+            <Typography
+              variant="h6"
+              sx={{ my: 3, fontSize: 16, fontWeight: 900, color: "gray" }}
+            >
+              Upto 50%
+            </Typography>
+            <NavLink to="/explore" style={{ textDecoration: "none" }}>
+              <Button variant="outlined">Explore</Button>
+            </NavLink>
+          </Box>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };
 

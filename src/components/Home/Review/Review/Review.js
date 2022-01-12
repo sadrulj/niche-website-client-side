@@ -7,7 +7,13 @@ import { Avatar, Box, CardActionArea, Grid, Rating } from "@mui/material";
 const Review = ({ review }) => {
   const { image, displayName, rating, comment } = review;
   return (
-    <Grid item xs={4} sm={4} md={4}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      style={{ display: "flex", justifyContent: "center" }}
+    >
       <Card sx={{ width: 345, height: 300 }}>
         <CardActionArea>
           <Avatar

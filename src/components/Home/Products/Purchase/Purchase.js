@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, Rating, TextField, Typography } from "@mui/material";
+import {
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Paper,
+  Rating,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import Navigation from "../../../Shared/Navigation/Navigation";
 import Footer from "../../../Shared/Footer/Footer";
 import { Button } from "@mui/material";
 import useAuth from "../../../../hooks/useAuth";
+import { Box } from "@mui/material";
 
 const Purchase = () => {
   const { id } = useParams();
@@ -56,65 +66,65 @@ const Purchase = () => {
   return (
     <div>
       <Navigation />
-      <Container>
-        <Grid container spacing={3} sx={{ my: 2 }}>
-          <Grid item xs={12} md={6}>
-            <img src={products.image} alt="" />
+      <Container style={{ margin: "25px auto" }}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <Grid item xs={12} sm={6} md={6}>
+            <Paper style={{ display: "flex", justifyContent: "center" }}>
+              <CardMedia
+                component="img"
+                style={{
+                  width: "100%",
+                  height: "400px",
+                  marginTop: "25px auto",
+                  padding: "10px",
+                }}
+                image={products.image}
+                alt={products.title}
+              />
+            </Paper>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h4" align="left">
-              {products.title} ({products.productCode})
-            </Typography>
-            <Rating
-              name="read-only"
-              value={products.rating}
-              size="large"
-              defaultValue={2.5}
-              precision={0.5}
-              readOnly
-              sx={{
-                display: "flex",
-                justifyContent: "left",
-                margin: "25px 0",
-              }}
-            />
-            <Typography variant="h4" align="left" sx={{ my: 4 }}>
-              $ {products.price}
-            </Typography>
-            <Typography variant="h4" align="left" sx={{ my: 4 }}></Typography>
-            <Grid
-              container
-              spacing={3}
-              sx={{
-                display: "flex",
-                justifyContent: "left",
-                alignItems: "center",
-                my: 2,
-              }}
-            >
-              <Grid item xs={6} md={3}>
+          <Grid item xs={12} sm={6} md={6}>
+            <CardContent>
+              <Typography variant="h4" align="left">
+                {products.title} ({products.productCode})
+              </Typography>
+              <Rating
+                name="read-only"
+                value={products.rating}
+                size="large"
+                defaultValue={2.5}
+                precision={0.5}
+                readOnly
+                sx={{
+                  display: "flex",
+                  justifyContent: "left",
+                  margin: "25px 0",
+                }}
+              />
+              <Typography variant="h4" align="left" sx={{ my: 4 }}>
+                $ {products.price}
+              </Typography>
+              <Box style={{ display: "flex", justifyContent: "space-between" }}>
                 <TextField
                   sx={{
                     display: "flex",
                     justifyContent: "left",
                     width: "80px",
-                    marginTop: "25px",
                   }}
                   type="number"
                   defaultValue="1"
                   InputLabelProps={{ shrink: true }}
                 />
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <Button
-                  onClick={handleOnClick}
-                  variant="contained"
-                  sx={{ height: "58px", marginTop: "28px", marginLeft: "20px" }}
-                >
+                <Button onClick={handleOnClick} variant="contained">
                   Buy Now
                 </Button>
-              </Grid>
-            </Grid>
+              </Box>
+            </CardContent>
           </Grid>
         </Grid>
       </Container>

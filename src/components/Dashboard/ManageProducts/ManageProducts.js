@@ -90,7 +90,7 @@ const ManageProducts = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row" align="center">
-                  {product.image}
+                  <img src={product.image} alt="" width="100" />
                 </TableCell>
                 <TableCell align="center">{product.title}</TableCell>
                 <TableCell align="center">{product.productCode}</TableCell>

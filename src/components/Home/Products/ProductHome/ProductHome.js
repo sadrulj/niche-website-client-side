@@ -10,8 +10,8 @@ import { NavLink } from "react-router-dom";
 const Product = ({ product }) => {
   const { image, title, productCode, rating, price } = product;
   return (
-    <Grid item xs={4} sm={4} md={4}>
-      <Card sx={{ minWidth: 375, border: 2, boxShadow: 2 }}>
+    <Grid item xs={12} sm={12} md={4}>
+      <Card sx={{ minWidth: 345, border: 2, boxShadow: 2 }}>
         <CardMedia
           component="img"
           style={{ width: "100%", height: "200px", margin: "0 auto" }}

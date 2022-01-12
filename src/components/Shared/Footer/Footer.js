@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer>
       <Box style={{ backgroundColor: "#3f51b5" }}>
-        <Grid container spacing={3} sx={{ my: 3 }}>
+        <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={6} lg={3}>
             <List sx={{ mt: 4 }}>
               <ListItemText>

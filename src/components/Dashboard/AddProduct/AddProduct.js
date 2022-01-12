@@ -5,17 +5,9 @@ import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 600,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
+  width: 500,
+  boxShadow: 16,
   p: 5,
-  mt: 3,
-  mx: 5,
 };
 
 const AddProduct = () => {
@@ -50,54 +42,62 @@ const AddProduct = () => {
     e.preventDefault();
   };
   return (
-    <Box sx={style}>
-      <Typography variant="h4">Add Product</Typography>
-      <form onSubmit={handleBookingSubmit}>
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          name="image"
-          onBlur={handleOnBlur}
-          label="Image URL"
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          name="title"
-          onBlur={handleOnBlur}
-          label="Title"
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          name="productCode"
-          onBlur={handleOnBlur}
-          label="Product Code"
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          name="rating"
-          onBlur={handleOnBlur}
-          label="Ratings"
-          size="small"
-        />
-        <TextField
-          sx={{ width: "90%", m: 1 }}
-          id="outlined-size-small"
-          name="price"
-          onBlur={handleOnBlur}
-          label="Price"
-          size="small"
-        />
-        <Button type="submit" variant="contained">
-          Submit
-        </Button>
-      </form>
-    </Box>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Box sx={style}>
+        <Typography variant="h4">Add Product</Typography>
+        <form onSubmit={handleBookingSubmit}>
+          <TextField
+            sx={{ width: "90%", m: 1 }}
+            id="outlined-size-small"
+            name="image"
+            onBlur={handleOnBlur}
+            label="Image URL"
+            size="small"
+          />
+          <TextField
+            sx={{ width: "90%", m: 1 }}
+            id="outlined-size-small"
+            name="title"
+            onBlur={handleOnBlur}
+            label="Title"
+            size="small"
+          />
+          <TextField
+            sx={{ width: "90%", m: 1 }}
+            id="outlined-size-small"
+            name="productCode"
+            onBlur={handleOnBlur}
+            label="Product Code"
+            size="small"
+          />
+          <TextField
+            sx={{ width: "90%", m: 1 }}
+            id="outlined-size-small"
+            name="rating"
+            onBlur={handleOnBlur}
+            label="Ratings"
+            size="small"
+          />
+          <TextField
+            sx={{ width: "90%", m: 1 }}
+            id="outlined-size-small"
+            name="price"
+            onBlur={handleOnBlur}
+            label="Price"
+            size="small"
+          />
+          <Button type="submit" variant="contained">
+            Submit
+          </Button>
+        </form>
+      </Box>
+    </div>
   );
 };
 

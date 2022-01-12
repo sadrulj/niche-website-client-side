@@ -50,8 +50,8 @@ const MyOrders = () => {
               <TableCell>Image</TableCell>
               <TableCell align="center">Product Code</TableCell>
               <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="center">Email</TableCell>
+              <TableCell align="center">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
