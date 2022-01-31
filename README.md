@@ -9,10 +9,10 @@ https://make-my-glasses.web.app/
 
 
 Client side gitlink:
-https://github.com/programming-hero-web-course-4/niche-website-client-side-sadrulj
+https://github.com/sadrulj/niche-website-client-side
 
 Server side gitlink:
-https://github.com/programming-hero-web-course-4/niche-website-server-side-sadrulj
+https://github.com/sadrulj/niche-website-server-side
 
 Description on project:
 
