@@ -25,7 +25,7 @@ const AddProduct = () => {
       ...productInfo,
     };
     // send to the server
-    fetch("https://obscure-temple-56874.herokuapp.com/products", {
+    fetch("https://make-my-glasses.herokuapp.com//products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

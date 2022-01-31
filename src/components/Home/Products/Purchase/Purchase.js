@@ -26,7 +26,7 @@ const Purchase = () => {
   console.log(products);
 
   useEffect(() => {
-    fetch(`https://obscure-temple-56874.herokuapp.com/products/${id}`)
+    fetch(`https://make-my-glasses.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [id]);
@@ -41,7 +41,7 @@ const Purchase = () => {
       email: user.email,
     };
 
-    fetch("https://obscure-temple-56874.herokuapp.com/orders", {
+    fetch("https://make-my-glasses.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

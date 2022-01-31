@@ -12,7 +12,7 @@ const ManageProducts = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://obscure-temple-56874.herokuapp.com/reviews/")
+    fetch("https://make-my-glasses.herokuapp.com/reviews/")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -21,7 +21,7 @@ const ManageProducts = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://obscure-temple-56874.herokuapp.com/reviews/${id}`;
+      const url = `https://make-my-glasses.herokuapp.com/reviews/${id}`;
 
       fetch(url, {
         method: "DELETE",

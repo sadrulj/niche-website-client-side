@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
 
   useEffect(() => {
-    fetch("https://obscure-temple-56874.herokuapp.com/orders")
+    fetch("https://make-my-glasses.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://obscure-temple-56874.herokuapp.com/orders/${id}`;
+      const url = `https://make-my-glasses.herokuapp.com/orders/${id}`;
 
       fetch(url, {
         method: "DELETE",

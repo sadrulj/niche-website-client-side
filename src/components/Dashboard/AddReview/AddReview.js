@@ -29,7 +29,7 @@ const Review = () => {
       email: user.email,
     };
     // send to the server
-    fetch("https://obscure-temple-56874.herokuapp.com/reviews", {
+    fetch("https://make-my-glasses.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

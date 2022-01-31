@@ -12,7 +12,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://obscure-temple-56874.herokuapp.com/products/")
+    fetch("https://make-my-glasses.herokuapp.com/products/")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -21,7 +21,7 @@ const ManageProducts = () => {
   const handleDeleteProduct = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://obscure-temple-56874.herokuapp.com/products/${id}`;
+      const url = `https://make-my-glasses.herokuapp.com/products/${id}`;
 
       fetch(url, {
         method: "DELETE",

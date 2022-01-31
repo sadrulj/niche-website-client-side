@@ -139,7 +139,7 @@ function ResponsiveDrawer(props) {
                 textDecoration: "none",
               }}
             >
-              <Link to={`${url}/myOrders`}>
+              <Link to={`${url}/orders/${user?.email}`}>
                 <Button>My Orders</Button>
               </Link>
             </ListItem>
@@ -167,7 +167,9 @@ function ResponsiveDrawer(props) {
             </ListItem>
           </Box>
         )}
-        <Button onClick={logout}>Logout</Button>
+        <Button className="mx-auto" onClick={logout}>
+          Logout
+        </Button>
       </List>
     </div>
   );
@@ -249,7 +251,7 @@ function ResponsiveDrawer(props) {
       >
         <Toolbar />
         <Switch>
-          <Route path={`${path}/myOrders`}>
+          <Route path={`${path}/orders`}>
             <MyOrders />
           </Route>
           <Route path={`${path}/review`}>

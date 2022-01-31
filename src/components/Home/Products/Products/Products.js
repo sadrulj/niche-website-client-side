@@ -9,14 +9,14 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://obscure-temple-56874.herokuapp.com/products")
+    fetch("https://make-my-glasses.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
   return (
     <div>
       <Navigation />
-      <Container>
+      <Container style={{ marginBottom: "60px" }}>
         <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
           Our Products...
         </Typography>

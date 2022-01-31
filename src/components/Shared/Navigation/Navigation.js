@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -28,9 +29,9 @@ const Navigation = () => {
             <Nav className="d-flex justify-content-center align-items-center">
               {user.email ? (
                 <div className="d-lg-flex justify-content-center align-items-center d-md-block">
-                  <p className="text-light d-flex justify-content-center align-items-center">
+                  <Typography className="text-light d-flex justify-content-center align-items-center">
                     Welcome, {user.displayName}
-                  </p>
+                  </Typography>
                   <NavLink className="nav-link" to="/dashboard">
                     Dashboard
                   </NavLink>

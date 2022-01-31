@@ -19,6 +19,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Alert, CircularProgress } from "@mui/material";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
+import { Paper } from "@mui/material";
 
 const theme = createTheme();
 
@@ -39,8 +40,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     loginUser(loginData.email, loginData.password, location, history);
 
-    console.log(loginData.email, loginData.password, location, history);
-
     e.preventDefault();
   };
   const handleGoogleSignIn = () => {
@@ -50,14 +49,19 @@ const Login = () => {
     <>
       <Navigation />
       <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
+        <Container
+          component="main"
+          maxWidth="xs"
+          style={{ marginBottom: "64px" }}
+        >
           <CssBaseline />
-          <Box
+          <Paper
             sx={{
               marginTop: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              padding: "15px",
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -115,13 +119,13 @@ const Login = () => {
               <Button
                 onClick={handleGoogleSignIn}
                 variant="contained"
-                sx={{ my: 1 }}
+                sx={{ my: 2 }}
               >
                 <GoogleIcon />
                 SignIn with Google
               </Button>
 
-              <Grid container justifyContent="flex-end">
+              <Grid container justifyContent="center">
                 <Grid item>
                   <NavLink to="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
@@ -129,7 +133,7 @@ const Login = () => {
                 </Grid>
               </Grid>
             </Box>
-          </Box>
+          </Paper>
         </Container>
       </ThemeProvider>
       <Footer />

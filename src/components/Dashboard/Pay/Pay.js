@@ -20,19 +20,23 @@ const ELEMENTS_OPTIONS = {
 
 const Pay = () => {
   const { orderId } = useParams();
-  const [order, setOrder] = useState({});
+  const [orders, setOrders] = useState({});
+  console.log(orderId);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${orderId}`)
+    const url = `https://make-my-glasses.herokuapp.com/orders/${orderId}`;
+    fetch(url)
       .then((res) => res.json())
-      .then((data) => setOrder(data));
+      .then((data) => setOrders(data));
   }, [orderId]);
+  console.log(orders);
+
   return (
     <div>
-      <h2>Please Pay for: {order.productCode}</h2>
-      <h3>Titel: {order.title}</h3>
-      <h4>Pay: ${order.price}</h4>
+      <h2>Please Pay for: {orders.productCode}</h2>
+      <h3>Titel: {orders.title}</h3>
+      <h4>Pay: ${orders.price}</h4>
       <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-        <CheckoutForm order={order} />
+        <CheckoutForm order={orders} />
       </Elements>
     </div>
   );

@@ -8,13 +8,13 @@ const Review = ({ review }) => {
   const { image, displayName, rating, comment } = review;
   return (
     <Grid
-      item
       xs={12}
       sm={6}
       md={4}
+      gap={4}
       style={{ display: "flex", justifyContent: "center" }}
     >
-      <Card sx={{ width: 345, height: 300 }}>
+      <Card sx={{ width: 345, height: 300, p: 2, my: 3 }}>
         <CardActionArea>
           <Avatar
             alt=""
@@ -40,9 +40,6 @@ const Review = ({ review }) => {
             <Typography variant="body2" color="text.secondary">
               {comment}
             </Typography>
-            <Box
-              style={{ display: "flex", justifyContent: "space-between" }}
-            ></Box>
           </CardContent>
         </CardActionArea>
       </Card>
